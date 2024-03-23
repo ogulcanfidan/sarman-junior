@@ -32,4 +32,7 @@ window.onload = function() {
         motorsikletListesi.appendChild(listElement);
     });
 };
-
+document.getElementById("silButton").addEventListener("click", function() {
+    localStorage.removeItem("motor");
+    document.getElementById("motorsikletListesi").innerHTML = "";
+});
