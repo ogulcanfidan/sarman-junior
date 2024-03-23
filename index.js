@@ -2,7 +2,7 @@ document.getElementById("motorsikletForm").addEventListener("submit", function(e
     event.preventDefault();
     
     
-    var kimim = document.querySelector('input[name="kimin"]').value;
+    var kimin = document.querySelector('input[name="kimin"]').value;
     var marka = document.querySelector('input[name="marka"]').value;
     var model = document.querySelector('input[name="model"]').value;
     var yil = document.querySelector('input[name="yıl"]').value;
@@ -13,23 +13,23 @@ document.getElementById("motorsikletForm").addEventListener("submit", function(e
     listElement.textContent = `Kimin: ${kimin}, Marka: ${marka}, Model: ${model}, Yıl: ${yil}, Gaç Beygir: ${gac}`;
 
     
-    var motorcycleList = document.getElementById("motorsikletListesi");
-    motorcycleList.appendChild(listElement);
+    var motorsikletListesi = document.getElementById("motorsikletListesi");
+    motorsikletListesi.appendChild(listElement);
     
     
-    var motorcycles = JSON.parse(localStorage.getItem("motorcycles")) || [];
-    var newMotorcycle = { kimin: kimin, marka: marka, model: model, yil: yil, gac: gac };
-    motorcycles.push(newMotorcycle);
-    localStorage.setItem("motorcycles", JSON.stringify(motorcycles));
+    var motor = JSON.parse(localStorage.getItem("motor")) || [];
+    var newMotor = { kimin: kimin, marka: marka, model: model, yil: yil, gac: gac };
+    motor.push(newMotor);
+    localStorage.setItem("motor", JSON.stringify(motor));
 });
 
 window.onload = function() {
-    var motorcycles = JSON.parse(localStorage.getItem("motorcycles")) || [];
-    var motorcycleList = document.getElementById("motorsikletListesi");
-    motorcycles.forEach(function(motorcycle) {
+    var motor = JSON.parse(localStorage.getItem("motor")) || [];
+    var motorsikletListesi = document.getElementById("motorsikletListesi");
+    motor.forEach(function(motor) {
         var listElement = document.createElement("li");
-        listElement.textContent = `Kimin: ${motorcycle.kimin}, Marka: ${motorcycle.marka}, Model: ${motorcycle.model}, Yıl: ${motorcycle.yil}, Gaç Beygir: ${motorcycle.gac}`;
-        motorcycleList.appendChild(listElement);
+        listElement.textContent = `Kimin: ${motor.kimin}, Marka: ${motor.marka}, Model: ${motor.model}, Yıl: ${motor.yil}, Gaç Beygir: ${motor.gac}`;
+        motorsikletListesi.appendChild(listElement);
     });
 };
 
